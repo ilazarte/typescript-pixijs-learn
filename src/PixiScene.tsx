@@ -1,9 +1,11 @@
 import * as React from "react";
 import {BasicGeometry} from "./sketch/BasicGeometry";
+import {BasicChart} from "./sketch/BasicChart";
 
 export default class PixiScene extends React.Component<any, any> {
 
-    sketch = new BasicGeometry();
+    /*sketch = new BasicGeometry();*/
+    sketch = new BasicChart();
 
     componentDidUpdate() {
         console.log("did update");
