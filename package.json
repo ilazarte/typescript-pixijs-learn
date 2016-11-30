@@ -1,9 +1,11 @@
 {
-  "name": "react-hot-ts",
+  "name": "typescript-pixijs-learn",
   "version": "0.1.0",
-  "description": "Demo of React Hot Reloading + TypeScript",
+  "description": "Pixi.js Experiments",
   "main": "./dist/bundle.js",
   "dependencies": {
+    "@types/pixi.js": "^4.1.0",
+    "pixi.js": "^4.2.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
@@ -23,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Glavin001/react-hot-ts.git"
+    "url": "git+https://github.com/ilazarte/typescript-pixijs-learn.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/Glavin001/react-hot-ts/issues"
+    "url": "https://github.com/ilazarte/typescript-pixijs-learn.git"
   },
-  "homepage": "https://github.com/Glavin001/react-hot-ts#readme"
+  "homepage": "https://github.com/ilazarte/typescript-pixijs-learn"
 }

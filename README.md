@@ -1,7 +1,8 @@
-# react-hot-ts
+# pixi.js typescript
 
-> Demo of React Hot Reloading + TypeScript
+> Beginnings of pixi.js and typescript experiments 
 
 ```bash
+npm install
 npm start
 ```

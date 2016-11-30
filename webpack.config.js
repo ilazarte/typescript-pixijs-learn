@@ -6,12 +6,12 @@ module.exports = {
         "react-hot-loader/patch",
         "webpack-dev-server/client?http://localhost:3000",
         "webpack/hot/only-dev-server",
-        "./src/index.tsx",
+        "./src/index.tsx"
     ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: "bundle.js",
-        publicPath: "/static/",
+        publicPath: "/static/"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -28,7 +28,7 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
@@ -41,7 +41,7 @@ module.exports = {
                     "awesome-typescript-loader"
                 ],
                 exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, "src"),
+                include: path.resolve(__dirname, "src")
             }
         ],
 
@@ -58,6 +58,6 @@ module.exports = {
     externals: {
         "react": "React",
         "react-dom": "ReactDOM"
-    },
+    }
 
 };
