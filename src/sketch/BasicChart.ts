@@ -25,10 +25,10 @@ export class BasicChart extends Sketch {
             coords.push(num);
         });
 
-        graphics.beginFill(0xcccccc);
-        graphics.moveTo(x, y);
-        graphics.drawPolygon(coords);
-        graphics.endFill();
+        graphics.beginFill(0xcccccc)
+            .moveTo(x, y)
+            .drawPolygon(coords)
+            .endFill();
 
         this.stage.addChild(graphics);
     }
