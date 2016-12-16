@@ -9,17 +9,35 @@ export abstract class Sketch {
 
     stage: PIXI.Container;
 
+    canvas: Node;
+
     setRenderer(renderer: PixiRenderer) {
         this.renderer = renderer;
-        document.getElementById("sketch").appendChild(this.renderer.view);
+        let canvas = document.getElementById("sketch").appendChild(this.renderer.view);
+        this.canvas = canvas;
     }
 
+    /**
+     * Return the renderer instance.
+     * @returns {PixiRenderer}
+     */
     getRenderer() : PixiRenderer {
         return this.renderer;
     }
 
+    /**
+     * Return the canvas element used for the stage.
+     * @returns {Node}
+     */
+    getCanvas() : Node {
+        return this.canvas;
+    }
+
     setStage(stage: Container) {
         this.stage = stage;
+    }
+
+    update(elapsed: number) {
     }
 
     /**
@@ -31,7 +49,6 @@ export abstract class Sketch {
      * Called on a draw.  Requires set renderer and stage..
      */
     render(): void {
-        this.renderer.render(this.stage);
     }
 
     /**
@@ -39,6 +56,6 @@ export abstract class Sketch {
      */
     destroy(): void {
         this.renderer.destroy(true);
-        Object.keys(PIXI.utils.TextureCache).forEach(texture => PIXI.utils.TextureCache[texture].destroy(true));
+        Object.keys(PIXI.utils.TextureCache).forEach(texture => PIXI.utils.TextureCache[texture].destroy(true, true));
     }
 }

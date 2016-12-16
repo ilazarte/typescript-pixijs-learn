@@ -47,10 +47,7 @@ export class BasicGeometry extends Sketch {
         this.stage.addChild(graphics);
     }
 
-
-    render(): void {
-
+    update(): void {
         this.graphics.rotation += 0.01;
-        super.render();
     }
 }
