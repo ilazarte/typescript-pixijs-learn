@@ -5,6 +5,7 @@ import {KeyMap} from "../utils/KeyMap";
 import {Streams} from "../utils/Streams";
 import Observable = Rx.Observable;
 import {Populations} from "../utils/Populations";
+import {Hatch} from "../gfx/fill/Hatch";
 
 class Blade {
     x: number;
@@ -43,6 +44,16 @@ export class Grass extends Sketch {
 
         this.stage.interactive = true;
 
+        let hatch = new Hatch({
+            x: 200,
+            y: 200,
+            width: 600,
+            height: 200,
+            spacing: 10
+        });
+
+        this.stage.addChild(hatch.render());
+
         for (let i = 0; i < 2000; i++) {
             let blade = new Blade(
                     Populations.random(100, 700),
@@ -50,7 +61,7 @@ export class Grass extends Sketch {
                     Populations.random(90, 100));
             this.blades[i] = blade;
             /*console.log(blade);*/
-            this.stage.addChild(blade.graphics);
+            //this.stage.addChild(blade.graphics);
         }
     }
 
