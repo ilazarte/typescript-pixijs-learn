@@ -1,4 +1,8 @@
+import Noise = require("noisejs");
+
 export class Maths {
+
+    static noise = new Noise(Math.random());
 
     /**
      * Map an array of numbers from one range to another.
@@ -35,7 +39,7 @@ export class Maths {
      * @param max
      * @returns {number}
      */
-    static random(min: number, max: number) : number {
+    static random(min: number, max = min): number {
         return Math.random() * (max - min) + min;
     }
 
@@ -45,8 +49,8 @@ export class Maths {
      * @param min
      * @param max
      */
-    static dataset(num:number, min: number, max: number) : number[] {
-        let res:number[] = [];
+    static dataset(num: number, min: number, max: number): number[] {
+        let res: number[] = [];
         for (let i = 0; i < num; i++) {
             res.push(Maths.random(min, max));
         }

@@ -1,5 +1,11 @@
-import {ShadeParams} from "./ShadeParams";
-export interface HatchParams extends ShadeParams {
+import {Line} from "../renderer/Line";
+
+export interface HatchParams {
+
+    /**
+     * The line renderer
+     */
+    line: Line;
 
     /**
      * Space between each hatch

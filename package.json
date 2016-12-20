@@ -4,8 +4,10 @@
   "description": "Pixi.js Experiments",
   "main": "./dist/bundle.js",
   "dependencies": {
+    "@types/noisejs": "0.0.28",
     "@types/pixi.js": "^4.1.0",
     "@types/tween.js": "0.0.31",
+    "noisejs": "^2.1.0",
     "pixi.js": "^4.2.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
@@ -31,7 +33,7 @@
     "url": "git+https://github.com/ilazarte/typescript-pixijs-learn.git"
   },
   "author": "",
-  "license": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ilazarte/typescript-pixijs-learn.git"
   },

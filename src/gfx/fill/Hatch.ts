@@ -1,34 +1,46 @@
 import Graphics = PIXI.Graphics;
 import {HatchParams} from "./HatchParams";
+import {Fill} from "./Fill";
 
 /**
  * http://thevirtualinstructor.com/hatchingcrosshatching.html
  */
 
-export class Hatch {
-    graphics = new Graphics();
-    params: HatchParams;
+export class Hatch implements Fill {
+
+    private graphics: Graphics = new Graphics();
+
+    private params: HatchParams;
+
     constructor(params: HatchParams) {
         this.params = params;
+
+        if (this.params.rotation) {
+            this.graphics.rotation = this.params.rotation;
+        }
     }
 
-    render(): Graphics {
-        let g = this.graphics,
+    fill(x: number, y: number, width: number, height: number): PIXI.Graphics {
+
+        let i = 0,
             p = this.params,
-            {x, y, width, height, spacing, color = 0x000000} = p,
-            i = 0;
+            g = this.graphics,
+            {line, spacing} = p;
 
-        if (p.rotation) {
-            g.rotation = p.rotation;
-        }
-
-        g.lineStyle(1, color);
+        g.clear();
+        g.x = x;
+        g.y = y;
 
         while (i < width) {
-            g.moveTo(i, y);
-            g.lineTo(i, y + height);
+            line.render(i, 0, i, height, g);
             i += spacing;
         }
+
         return g;
     }
+
+    getGraphics(): PIXI.Graphics {
+        return this.graphics;
+    }
+
 }

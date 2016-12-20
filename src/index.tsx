@@ -1,5 +1,7 @@
 ///<reference path="../node_modules/@types/pixi.js/index.d.ts"/>
+///<reference path="../node_modules/@types/noisejs/index.d.ts"/>
 ///<reference path="../node_modules/rx/ts/rx.all.d.ts"/>
+
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";

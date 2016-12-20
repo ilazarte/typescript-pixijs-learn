@@ -4,38 +4,13 @@ import Text = PIXI.Text;
 import {KeyMap} from "../utils/KeyMap";
 import {Streams} from "../utils/Streams";
 import Observable = Rx.Observable;
-import {Populations} from "../utils/Populations";
 import {Hatch} from "../gfx/fill/Hatch";
-
-class Blade {
-    x: number;
-    y: number;
-    length: number;
-    alpha: number;
-    graphics: Graphics;
-    constructor(x: number, y:number, length: number) {
-        this.x = x;
-        this.y = y;
-        this.length = length;
-        this.graphics = new Graphics();
-        this.alpha = Populations.random(0, 1);
-        this.draw();
-    }
-
-    update() {
-    }
-
-    draw() {
-        let g = this.graphics;
-        g.lineStyle(1, 0x000000, this.alpha);
-        g.moveTo(this.x, this.y);
-        g.lineTo(this.x, this.y - this.length);
-    }
-}
+import {SimpleLine} from "../gfx/renderer/SimpleLine";
+import {SegmentedLine} from "../gfx/renderer/SegmentedLine";
 
 export class Grass extends Sketch {
 
-    blades: Blade[] = [];
+    hatch: Hatch;
 
     setup(): void {
 
@@ -44,29 +19,25 @@ export class Grass extends Sketch {
 
         this.stage.interactive = true;
 
-        let hatch = new Hatch({
-            x: 200,
-            y: 200,
-            width: 600,
-            height: 200,
-            spacing: 10
+        this.hatch = new Hatch({
+            line: new SegmentedLine({
+                width: 1,
+                color: 0x000000,
+                segments: 10,
+                jitter: 2
+            }),
+            spacing: 5,
+            rotation: 0.5
         });
 
-        this.stage.addChild(hatch.render());
-
-        for (let i = 0; i < 2000; i++) {
-            let blade = new Blade(
-                    Populations.random(100, 700),
-                    Populations.random(400, 500),
-                    Populations.random(90, 100));
-            this.blades[i] = blade;
-            /*console.log(blade);*/
-            //this.stage.addChild(blade.graphics);
-        }
+        //this.hatch.getGraphics().cacheAsBitmap = true;
+        this.stage.addChild(this.hatch.fill(200, 200, 150, 150));
     }
 
     update(elapsed: number) {
         //this.blades.forEach(b => b.update());
+        //this.hatch.getGraphics().rotation += 0.01;
+        //this.hatch.fill(200, 200, 150, 150);
         //TWEEN.update();
     }
 }
